@@ -1,142 +1,158 @@
 const premiumCompanies = [
     {
+        id: "ellis-box",
         name: "Ellis Box",
         category: "Produse alimentare",
         logo: "./imagess/ellis.png",
+
         slogan: "Fructe și legume proaspete, livrate cu grijă până la ușa ta.",
+
         description: "Descoperă produse proaspete și livrare convenabilă pentru tine și familia ta.",
+
         features: [
             "🍎 Produse proaspete",
             "🚚 Livrare la domiciliu",
             "✨ Profil Premium"
         ],
-        url: "./ellis-box.html"
+
+        url: "./membru/ellis-box/"
     },
 
-    // mai târziu adăugăm pur și simplu altă companie
     {
+        id: "vedance-studio",
         name: "VEDANCE Studio",
         category: "Dance",
         logo: "./imagess/dance.png",
-         slogan: "Dans pentru toate vârstele – de la primii pași până la scenă.",
 
-    description: "Programe de dans pentru copii și adulți, cursuri adaptate diferitelor niveluri și experiențe pline de energie.",
+        slogan: "Dans pentru toate vârstele – de la primii pași până la scenă.",
 
-    features: [
-        "👧 Copii",
-        "🕺 Adulți",
-        "💃 Cursuri de dans",
-        "🎭 Spectacole & evenimente"
+        description: "Programe de dans pentru copii și adulți, cursuri adaptate diferitelor niveluri și experiențe pline de energie.",
+
+        features: [
+            "👧 Copii",
+            "🕺 Adulți",
+            "💃 Cursuri de dans",
+            "🎭 Spectacole & evenimente"
         ],
-        url: "./vedance.html"
+
+        url: "./membru/vedance-studio/"
     },
 
     {
-    name: "Tatiana Beauty Salon",
-    category: "Beauty",
-    logo: "./imagess/tatianasalon.png",
+        id: "tatiana-beauty-salon",
+        name: "Tatiana Beauty Salon",
+        category: "Beauty",
+        logo: "./imagess/tatianasalon.png",
 
-    slogan: "Frumusețe, îngrijire și răsfăț într-un singur loc.",
+        slogan: "Frumusețe, îngrijire și răsfăț într-un singur loc.",
 
-    description: "Descoperă servicii de beauty și îngrijire, de la manichiură și coafură până la epilare cu laser și masaj.",
+        description: "Descoperă servicii de beauty și îngrijire, de la manichiură și coafură până la epilare cu laser și masaj.",
 
-    features: [
-        "💅 Manichiură & pedichiură",
-        "💇‍♀️ Coafură",
-        "✨ Epilare laser",
-        "💆‍♀️ Masaj"
-    ],
+        features: [
+            "💅 Manichiură & pedichiură",
+            "💇‍♀️ Coafură",
+            "✨ Epilare laser",
+            "💆‍♀️ Masaj"
+        ],
 
-    url: "./tatiana-beauty-salon.html"
-},
-{
-    name: "GVM Coaching",
-    category: "Educație",
-    logo: "./imagess/coaching.png",
+        url: "./membru/tatiana-beauty-salon/"
+    },
 
-    slogan: "Claritate, direcție și dezvoltare personală pentru următorul tău pas.",
+    {
+        id: "gvm-coaching",
+        name: "GVM Coaching",
+        category: "Educație",
+        logo: "./imagess/coaching.png",
 
-    description: "Descoperă sesiuni și experiențe dedicate dezvoltării personale, prin coaching, evenimente live, numerologie și astrologie.",
+        slogan: "Claritate, direcție și dezvoltare personală pentru următorul tău pas.",
 
-    features: [
-        "🧭 Life Coaching",
-        "🎤 Live Events",
-        "🔢 Numerologie",
-        "✨ Astrologie"
-    ],
+        description: "Descoperă sesiuni și experiențe dedicate dezvoltării personale, prin coaching, evenimente live, numerologie și astrologie.",
 
-    url: "./gvm-coaching.html"
-},
-{
-    name: "Natalia’s Bakery",
-    category: "Business",
-    logo: "./imagess/bakery.png",
+        features: [
+            "🧭 Life Coaching",
+            "🎤 Live Events",
+            "🔢 Numerologie",
+            "✨ Astrologie"
+        ],
 
-    slogan: "Gust autentic, pregătit cu grijă pentru masa și evenimentele tale.",
+        url: "./membru/gvm-coaching/"
+    },
 
-    description: "Descoperă colaci pentru evenimente, plăcinte și pâine cu maia, pregătite cu atenție și pasiune.",
+    {
+        id: "natalias-bakery",
+        name: "Natalia’s Bakery",
+        category: "Produse alimentare",
+        logo: "./imagess/bakery.png",
 
-    features: [
-        "🥨 Colaci pentru evenimente",
-        "🥧 Plăcinte",
-        "🍞 Pâine cu maia"
-    ],
+        slogan: "Gust autentic, pregătit cu grijă pentru masa și evenimentele tale.",
 
-    url: "./natalias-bakery.html"
-}, 
+        description: "Descoperă colaci pentru evenimente, plăcinte și pâine cu maia, pregătite cu atenție și pasiune.",
 
-{
-    name: "Go Consulting Ltd",
-    category: "Finanțe",
-    logo: "./imagess/accounting.png",
+        features: [
+            "🥨 Colaci pentru evenimente",
+            "🥧 Plăcinte",
+            "🍞 Pâine cu maia"
+        ],
 
-    slogan: "Contabilitate mai simplă pentru afacerea ta.",
+        url: "./membru/natalias-bakery/"
+    },
 
-    description: "Servicii de contabilitate pentru antreprenori și afaceri care vor mai multă claritate și organizare financiară.",
+    {
+        id: "go-consulting",
+        name: "Go Consulting Ltd",
+        category: "Finanțe",
+        logo: "./imagess/accounting.png",
 
-    features: [
-        "📊 Contabilitate",
-        "💼 Pentru afaceri",
-        "🤝 Suport profesional"
-    ],
+        slogan: "Contabilitate mai simplă pentru afacerea ta.",
 
-    url: "./go-consulting.html"
-}, 
+        description: "Servicii de contabilitate pentru antreprenori și afaceri care vor mai multă claritate și organizare financiară.",
 
-{
-    name: "Birou de Orice Immigration",
-    category: "Consultanță",
-    logo: "./imagess/cetatenie.png",
+        features: [
+            "📊 Contabilitate",
+            "💼 Pentru afaceri",
+            "🤝 Suport profesional"
+        ],
 
-    slogan: "Mai multă claritate pentru următorul tău pas în UK.",
+        url: "./membru/go-consulting/"
+    },
 
-    description: "Consultanță pentru imigrare, aplicații pentru viză și aplicații pentru cetățenie britanică.",
+    {
+        id: "birou-de-orice-immigration",
+        name: "Birou de Orice Immigration",
+        category: "Consultanță",
+        logo: "./imagess/cetatenie.png",
 
-    features: [
-        "🇬🇧 Imigrare",
-        "📄 Aplicații pentru viză",
-        "🏛️ Cetățenie britanică"
-    ],
+        slogan: "Mai multă claritate pentru următorul tău pas în UK.",
 
-    url: "./birou-de-orice.html"
-}, 
-{
-    name: "Eliza Beauty Academy",
-    category: "Beauty",
-    logo: "./imagess/lash.png",
+        description: "Consultanță pentru imigrare, aplicații pentru viză și aplicații pentru cetățenie britanică.",
 
-    slogan: "Frumusețe, precizie și pasiune pentru fiecare detaliu.",
+        features: [
+            "🇬🇧 Imigrare",
+            "📄 Aplicații pentru viză",
+            "🏛️ Cetățenie britanică"
+        ],
 
-    description: "Extensii de gene și cursuri fizice pentru cei care vor să descopere și să dezvolte tehnici în domeniul lash beauty.",
+        url: "./membru/birou-de-orice-immigration/"
+    },
 
-    features: [
-        "✨ Lash extensions",
-        "👁️ Extensii de gene",
-        "🎓 Cursuri fizice"
-    ],
+    {
+        id: "eliza-beauty-academy",
+        name: "Eliza Beauty Academy",
+        category: "Beauty",
+        logo: "./imagess/lash.png",
 
-    url: "./eliza-beauty-academy.html"
-}, 
+        slogan: "Frumusețe, precizie și pasiune pentru fiecare detaliu.",
+
+        description: "Extensii de gene și cursuri fizice pentru cei care vor să descopere și să dezvolte tehnici în domeniul lash beauty.",
+
+        features: [
+            "✨ Lash extensions",
+            "👁️ Extensii de gene",
+            "🎓 Cursuri fizice"
+        ],
+
+        url: "./membru/eliza-beauty-academy/"
+    }
 ];
 
 
@@ -150,29 +166,29 @@ function createPremiumCard(company) {
                     border border-[#E8E5DE]
                     bg-white
                     shadow-sm
-                    p-5 sm:p-6 lg:p-7">
+                    p-4 sm:p-4">
 
             <!-- PREMIUM -->
             <div class="absolute top-0 right-0
                         bg-[#FFD338]
                         text-[#064FC4]
-                        text-xs sm:text-sm
+                        text-xs
                         font-bold
-                        px-4 sm:px-5 py-2
+                        px-3.5 py-1.5
                         rounded-bl-2xl">
                 PREMIUM
             </div>
 
 
-            <div class="grid gap-6
-                        md:grid-cols-[130px_1fr]
+            <div class="grid gap-4
+                        md:grid-cols-[95px_1fr]
                         md:items-center">
 
                 <!-- LOGO -->
                 <div class="flex justify-center md:justify-start">
 
-                    <div class="w-28 h-28
-                                sm:w-32 sm:h-32
+                    <div class="w-20 h-20
+                                sm:w-24 sm:h-24
                                 rounded-full
                                 overflow-hidden
                                 border border-[#E4E7EC]
@@ -193,11 +209,12 @@ function createPremiumCard(company) {
                 <!-- CONTENT -->
                 <div class="text-center md:text-left">
 
+                    <!-- CATEGORY -->
                     <span class="inline-block
                                  rounded-lg
                                  bg-[#064FC4]/10
-                                 px-3 py-1
-                                 text-xs sm:text-sm
+                                 px-2.5 py-1
+                                 text-xs
                                  font-semibold
                                  text-[#064FC4]">
 
@@ -206,8 +223,9 @@ function createPremiumCard(company) {
                     </span>
 
 
-                    <h2 class="mt-3
-                               text-2xl sm:text-3xl
+                    <!-- NAME -->
+                    <h2 class="mt-2
+                               text-xl sm:text-2xl
                                font-semibold
                                tracking-tight
                                text-[#064FC4]">
@@ -217,10 +235,11 @@ function createPremiumCard(company) {
                     </h2>
 
 
-                    <p class="mt-3
-                              text-base sm:text-lg
+                    <!-- SLOGAN -->
+                    <p class="mt-1.5
+                              text-sm sm:text-base
                               font-medium
-                              leading-6 sm:leading-7
+                              leading-5
                               text-[#334E68]">
 
                         ${company.slogan}
@@ -228,9 +247,10 @@ function createPremiumCard(company) {
                     </p>
 
 
-                    <p class="mt-2
-                              text-sm sm:text-base
-                              leading-6
+                    <!-- DESCRIPTION -->
+                    <p class="mt-1.5
+                              text-sm
+                              leading-5
                               text-[#667085]">
 
                         ${company.description}
@@ -239,19 +259,21 @@ function createPremiumCard(company) {
 
 
                     <!-- FEATURES -->
-                    <div class="mt-5
+                    <div class="mt-3
                                 flex flex-wrap
                                 justify-center md:justify-start
-                                gap-2">
+                                gap-1.5">
 
                         ${company.features.map(feature => `
                             <span class="rounded-full
                                          bg-[#F8F5ED]
-                                         px-3 py-1.5
-                                         text-xs sm:text-sm
+                                         px-2.5 py-1
+                                         text-xs
                                          font-medium
                                          text-[#46546A]">
+
                                 ${feature}
+
                             </span>
                         `).join("")}
 
@@ -259,13 +281,13 @@ function createPremiumCard(company) {
 
 
                     <!-- BUTTON -->
-                    <div class="mt-5">
+                    <div class="mt-3">
 
                         <a href="${company.url}"
                            class="inline-flex items-center justify-center
                                   rounded-xl
                                   bg-[#064FC4]
-                                  px-5 py-2.5
+                                  px-4 py-2
                                   text-sm
                                   font-semibold
                                   text-white
@@ -274,6 +296,7 @@ function createPremiumCard(company) {
                                   hover:-translate-y-0.5">
 
                             Descoperă ${company.name}
+
                             <span class="ml-2">→</span>
 
                         </a>
@@ -287,18 +310,61 @@ function createPremiumCard(company) {
         </div>
     `;
 }
+// function renderPremiumCards() {
+
+//     const container = document.getElementById("premium-companies");
+
+//     if (!container) return;
+
+//     container.innerHTML = premiumCompanies
+//         .map(company => createPremiumCard(company))
+//         .join("");
+// }
 
 
-function renderPremiumCards() {
+function renderPremiumCards(companies = premiumCompanies) {
 
     const container = document.getElementById("premium-companies");
 
     if (!container) return;
 
-    container.innerHTML = premiumCompanies
+    if (companies.length === 0) {
+        container.innerHTML = `
+            <div class="py-10 text-center">
+                <p class="text-lg font-semibold text-[#334E68]">
+                    Nu am găsit nicio companie.
+                </p>
+
+                <p class="mt-2 text-sm text-[#667085]">
+                    Încearcă un alt nume sau o altă categorie.
+                </p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = companies
         .map(company => createPremiumCard(company))
         .join("");
 }
 
-
 renderPremiumCards();
+
+const searchInput = document.getElementById("premium-search");
+
+if (searchInput) {
+    searchInput.addEventListener("input", function () {
+        const searchValue = this.value
+            .toLowerCase()
+            .trim();
+
+        const filteredCompanies = premiumCompanies.filter(company => {
+            return (
+                company.name.toLowerCase().includes(searchValue) ||
+                company.category.toLowerCase().includes(searchValue)
+            );
+        });
+
+        renderPremiumCards(filteredCompanies);
+    });
+}
