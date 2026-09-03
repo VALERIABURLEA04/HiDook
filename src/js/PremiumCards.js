@@ -15,28 +15,60 @@ const premiumCompanies = [
             "✨ Profil Premium"
         ],
 
+         location: {
+    address: null,
+    map: null,
+    regions: [
+        "London",
+        "Northampton",
+        "Luton",
+        "Dunstable"
+    ]
+    },
+       promo: {
+    title: "🎁 10% reducere la prima comandă"
+},
+
+jobs: [],
+
+   
         url: "./membru/ellis-box/"
     },
 
     {
-        id: "vedance-studio",
-        name: "VEDANCE Studio",
-        category: "Dance",
-        logo: "./imagess/dance.png",
+    id: "vedance-studio",
+    name: "VEDANCE Studio",
+    category: "Dance",
+    logo: "./imagess/dance.png",
 
-        slogan: "Dans pentru toate vârstele – de la primii pași până la scenă.",
+    slogan: "Dans pentru toate vârstele – de la primii pași până la scenă.",
 
-        description: "Programe de dans pentru copii și adulți, cursuri adaptate diferitelor niveluri și experiențe pline de energie.",
+    description: "Programe de dans pentru copii și adulți, cursuri adaptate diferitelor niveluri și experiențe pline de energie.",
 
-        features: [
-            "👧 Copii",
-            "🕺 Adulți",
-            "💃 Cursuri de dans",
-            "🎭 Spectacole & evenimente"
-        ],
-
-        url: "./membru/vedance-studio/"
+    features: [
+        "👧 Copii",
+        "🕺 Adulți",
+        "💃 Cursuri de dans",
+        "🎭 Spectacole & evenimente"
+    ],
+location: {
+        address: null,
+        map: null,
+        regions: [
+            "Ipswich",
+            "Romford"
+        ]
     },
+    promo: null,
+
+    jobs: [
+        {
+            title: "💼 Instructor de dans"
+        }
+    ],
+
+    url: "./membru/vedance-studio/"
+},
 
     {
         id: "tatiana-beauty-salon",
@@ -59,24 +91,34 @@ const premiumCompanies = [
     },
 
     {
-        id: "gvm-coaching",
-        name: "GVM Coaching",
-        category: "Educație",
-        logo: "./imagess/coaching.png",
+    id: "gvm-coaching",
+    name: "GVM Coaching",
+    category: "Educație",
+    logo: "./imagess/coaching.png",
 
-        slogan: "Claritate, direcție și dezvoltare personală pentru următorul tău pas.",
+    slogan: "Claritate, direcție și dezvoltare personală pentru următorul tău pas.",
 
-        description: "Descoperă sesiuni și experiențe dedicate dezvoltării personale, prin coaching, evenimente live, numerologie și astrologie.",
+    description: "Descoperă sesiuni și experiențe dedicate dezvoltării personale, prin coaching, evenimente live, numerologie și astrologie.",
 
-        features: [
-            "🧭 Life Coaching",
-            "🎤 Live Events",
-            "🔢 Numerologie",
-            "✨ Astrologie"
-        ],
+    features: [
+        "🧭 Life Coaching",
+        "🎤 Live Events",
+        "🔢 Numerologie",
+        "✨ Astrologie"
+    ],
 
-        url: "./membru/gvm-coaching/"
+    promo: {
+        title: "🎁 Prima sesiune de coaching -20%"
     },
+
+    jobs: [
+        {
+            title: "💼 Asistent evenimente"
+        }
+    ],
+
+    url: "./membru/gvm-coaching/"
+},
 
     {
         id: "natalias-bakery",
@@ -136,23 +178,29 @@ const premiumCompanies = [
     },
 
     {
-        id: "eliza-beauty-academy",
-        name: "Eliza Beauty Academy",
-        category: "Beauty",
-        logo: "./imagess/lash.png",
+    id: "eliza-beauty-academy",
+    name: "Eliza Beauty Academy",
+    category: "Beauty",
+    logo: "./imagess/lash.png",
 
-        slogan: "Frumusețe, precizie și pasiune pentru fiecare detaliu.",
+    slogan: "Frumusețe, precizie și pasiune pentru fiecare detaliu.",
 
-        description: "Extensii de gene și cursuri fizice pentru cei care vor să descopere și să dezvolte tehnici în domeniul lash beauty.",
+    description: "Extensii de gene și cursuri fizice pentru cei care vor să descopere și să dezvolte tehnici în domeniul lash beauty.",
 
-        features: [
-            "✨ Lash extensions",
-            "👁️ Extensii de gene",
-            "🎓 Cursuri fizice"
-        ],
+    features: [
+        "✨ Lash extensions",
+        "👁️ Extensii de gene",
+        "🎓 Cursuri fizice"
+    ],
 
-        url: "./membru/eliza-beauty-academy/"
-    }
+    promo: {
+        title: "🎁 -15% la înscrierea la un curs"
+    },
+
+    jobs: [],
+
+    url: "./membru/eliza-beauty-academy/"
+}
 ];
 
 
@@ -279,6 +327,32 @@ function createPremiumCard(company) {
 
                     </div>
 
+                    <!-- PROMO / JOBS -->
+<div class="mt-3 flex flex-wrap justify-center md:justify-start gap-2">
+
+    ${company.promo ? `
+        <span class="rounded-lg
+                     bg-[#FFF4CC]
+                     px-3 py-1.5
+                     text-xs
+                     font-semibold
+                     text-[#8A5A00]">
+            🎁 ${company.promo.title}
+        </span>
+    ` : ""}
+
+    ${company.jobs && company.jobs.length > 0 ? `
+        <span class="rounded-lg
+                     bg-[#EAF2FF]
+                     px-3 py-1.5
+                     text-xs
+                     font-semibold
+                     text-[#064FC4]">
+            💼 ${company.jobs[0].title}
+        </span>
+    ` : ""}
+
+</div>
 
                     <!-- BUTTON -->
                     <div class="mt-3">
@@ -368,3 +442,75 @@ if (searchInput) {
         renderPremiumCards(filteredCompanies);
     });
 }
+
+   if (company.location?.map) {
+
+        container.innerHTML = `
+            <section class="bg-white py-10 sm:py-12">
+
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
+                        Locație
+                    </h2>
+
+                    <p class="mt-2 text-[#667085]">
+                        ${company.location.address}
+                    </p>
+
+                    <div class="mt-6 overflow-hidden rounded-2xl
+                                border border-[#E4E7EC]">
+
+                        <iframe
+                            src="${company.location.map}"
+                            class="w-full h-[280px] sm:h-[350px]"
+                            style="border:0;"
+                            loading="lazy"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </section>
+        `;
+
+        return;
+    }
+
+
+    // DACĂ EXISTĂ DOAR REGIUNI
+    if (company.location?.regions?.length) {
+
+        container.innerHTML = `
+            <section class="bg-white py-8 sm:py-10">
+
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
+                        Zone deservite
+                    </h2>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+
+                        ${company.location.regions.map(region => `
+                            <span class="rounded-full
+                                         bg-[#F8F5ED]
+                                         px-4 py-2
+                                         text-sm
+                                         text-[#46546A]">
+                                📍 ${region}
+                            </span>
+                        `).join("")}
+
+                    </div>
+
+                </div>
+
+            </section>
+        `;
+    }
+
+
+renderLocation(company);
