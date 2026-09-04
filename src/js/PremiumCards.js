@@ -443,74 +443,74 @@ if (searchInput) {
     });
 }
 
-   if (company.location?.map) {
+//    if (company.location?.map) {
 
-        container.innerHTML = `
-            <section class="bg-white py-10 sm:py-12">
+//         container.innerHTML = `
+//             <section class="bg-white py-10 sm:py-12">
 
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+//                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
-                        Locație
-                    </h2>
+//                     <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
+//                         Locație
+//                     </h2>
 
-                    <p class="mt-2 text-[#667085]">
-                        ${company.location.address}
-                    </p>
+//                     <p class="mt-2 text-[#667085]">
+//                         ${company.location.address}
+//                     </p>
 
-                    <div class="mt-6 overflow-hidden rounded-2xl
-                                border border-[#E4E7EC]">
+//                     <div class="mt-6 overflow-hidden rounded-2xl
+//                                 border border-[#E4E7EC]">
 
-                        <iframe
-                            src="${company.location.map}"
-                            class="w-full h-[280px] sm:h-[350px]"
-                            style="border:0;"
-                            loading="lazy"
-                            allowfullscreen>
-                        </iframe>
+//                         <iframe
+//                             src="${company.location.map}"
+//                             class="w-full h-[280px] sm:h-[350px]"
+//                             style="border:0;"
+//                             loading="lazy"
+//                             allowfullscreen>
+//                         </iframe>
 
-                    </div>
+//                     </div>
 
-                </div>
+//                 </div>
 
-            </section>
-        `;
+//             </section>
+//         `;
 
-        return;
-    }
-
-
-    // DACĂ EXISTĂ DOAR REGIUNI
-    if (company.location?.regions?.length) {
-
-        container.innerHTML = `
-            <section class="bg-white py-8 sm:py-10">
-
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                    <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
-                        Zone deservite
-                    </h2>
-
-                    <div class="mt-4 flex flex-wrap gap-2">
-
-                        ${company.location.regions.map(region => `
-                            <span class="rounded-full
-                                         bg-[#F8F5ED]
-                                         px-4 py-2
-                                         text-sm
-                                         text-[#46546A]">
-                                📍 ${region}
-                            </span>
-                        `).join("")}
-
-                    </div>
-
-                </div>
-
-            </section>
-        `;
-    }
+//         return;
+//     }
 
 
-renderLocation(company);
+    
+//     if (company.location?.regions?.length) {
+
+//         container.innerHTML = `
+//             <section class="bg-white py-8 sm:py-10">
+
+//                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+//                     <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
+//                         Zone deservite
+//                     </h2>
+
+//                     <div class="mt-4 flex flex-wrap gap-2">
+
+//                         ${company.location.regions.map(region => `
+//                             <span class="rounded-full
+//                                          bg-[#F8F5ED]
+//                                          px-4 py-2
+//                                          text-sm
+//                                          text-[#46546A]">
+//                                 📍 ${region}
+//                             </span>
+//                         `).join("")}
+
+//                     </div>
+
+//                 </div>
+
+//             </section>
+//         `;
+//     }
+
+
+// renderLocation(company);
