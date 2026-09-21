@@ -1,4 +1,7 @@
 async function loadComponent(id, path) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
     try {
         const response = await fetch(path);
 
@@ -7,7 +10,7 @@ async function loadComponent(id, path) {
         }
 
         const html = await response.text();
-        document.getElementById(id).innerHTML = html;
+        target.innerHTML = html;
 
     } catch (error) {
         console.error(error);
