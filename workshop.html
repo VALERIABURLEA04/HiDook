@@ -450,25 +450,9 @@
 </div>
 
 
-                <!-- EARLY BIRD PILL -->
-                <a href="#participare" data-early-bird
-                   class="mt-7 inline-flex flex-wrap items-center gap-x-2 gap-y-1
-                          rounded-full border border-[#FFD338] bg-[#FFF8E1]
-                          px-3.5 py-1.5
-                          text-xs sm:text-sm text-[#071A3D]
-                          transition hover:bg-[#FFF1C2]">
-                    <span class="rounded-full bg-[#FFD338] px-2 py-0.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em]">
-                        Early Bird
-                    </span>
-                    <span>
-                        <strong>£29</strong>
-                        <span class="text-[#98A2B3] line-through">£49</span>
-                        · până pe 30 septembrie
-                    </span>
-                </a>
 
                 <!-- CTA -->
-                <div class="mt-4">
+                <div class="mt-7">
 
                     <a href="#participare" data-ticket-open
    class="inline-flex
@@ -1744,50 +1728,7 @@ de cineva înaintea ta.
                         Bilet Standard
                     </p>
 
-                    <!-- EARLY BIRD (se ascunde automat după 30.09.2026) -->
-                    <div data-early-bird class="flex flex-col items-center">
-
-                        <span class="mt-4 inline-flex items-center gap-1.5
-                                     rounded-full bg-[#FFD338]
-                                     px-3.5 py-1
-                                     text-xs font-bold uppercase tracking-[0.14em]
-                                     text-[#071A3D]
-                                     shadow-[0_4px_14px_rgba(255,200,61,0.45)]">
-                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
-                            Early Bird
-                        </span>
-
-                        <div class="mt-3 flex items-end justify-center gap-3">
-
-                            <span class="mb-2 text-2xl font-semibold text-[#98A2B3] line-through decoration-[#FF3347] decoration-2">
-                                <span class="sr-only">Preț standard:</span>£49
-                            </span>
-
-                            <div class="flex items-start text-[#071A3D]">
-                                <span class="sr-only">Preț Early Bird:</span>
-                                <span class="mt-2 text-3xl font-semibold">£</span>
-                                <span class="text-7xl font-bold tracking-tight">29</span>
-                            </div>
-
-                        </div>
-
-                        <p class="mt-2 text-sm font-semibold text-[#067647]">
-                            Economisești £20
-                        </p>
-
-                        <div class="mt-4 w-full rounded-xl border border-dashed border-[#FF3347]/40 bg-white px-4 py-2.5">
-                            <p class="text-sm font-semibold text-[#FF3347]" data-early-bird-countdown>
-                                Ofertă valabilă până pe 30 septembrie
-                            </p>
-                            <p class="mt-0.5 text-xs text-[#667085]">
-                                Apoi prețul revine la £49
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <!-- PREȚ STANDARD (apare după 30.09.2026) -->
-                    <div data-regular-price hidden class="mt-4 flex items-start justify-center text-[#071A3D]">
+                    <div class="mt-4 flex items-start justify-center text-[#071A3D]">
 
                         <span class="mt-2
                                      text-3xl
@@ -2006,16 +1947,11 @@ de cineva înaintea ta.
                shadow-[0_30px_80px_rgba(7,26,61,0.35)]
                backdrop:bg-[#071A3D]/55">
 
-    <!--
-        LINK DE PLATĂ: lipește linkurile în data-payment-url-early (preț Early Bird, până pe 30.09)
-        și data-payment-url (preț standard). Cât timp sunt goale, formularul doar salvează datele
-        și spune că detaliile de plată vin pe email.
-    -->
+    <!-- LINK DE PLATĂ (Revolut, £49): după salvarea datelor, omul e trimis aici -->
     <form id="ticket-form"
           class="p-5 sm:p-7"
           data-endpoint="https://script.google.com/macros/s/AKfycbxJWx7yrqNbVY4Dh_4cyuQWztptwy1lPfrk91XgThTTliir_OrjmtmMukjrVH-jFsJJ/exec"
-          data-payment-url-early=""
-          data-payment-url=""
+          data-payment-url="https://checkout.revolut.com/pay/016b3077-79fc-45a1-b04a-023bc7b7e8b5"
           novalidate>
 
         <input type="hidden" name="tip" value="eveniment">
@@ -2045,11 +1981,7 @@ de cineva înaintea ta.
         <div class="mt-4 flex items-center justify-between gap-3 rounded-xl bg-[#EEF4FF] px-4 py-3">
             <span class="text-sm font-semibold text-[#29466D]">6 octombrie · Online · 2h+</span>
             <span class="text-right">
-                <span data-early-bird class="inline-flex items-center gap-1.5">
-                    <span class="text-sm text-[#98A2B3] line-through">£49</span>
-                    <span class="text-xl font-bold text-[#071A3D]">£29</span>
-                </span>
-                <span data-regular-price hidden class="text-xl font-bold text-[#071A3D]">£49</span>
+                <span class="text-xl font-bold text-[#071A3D]">£49</span>
             </span>
         </div>
 

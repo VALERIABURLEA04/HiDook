@@ -1,24 +1,8 @@
-// Business Diagnostic Live: preț Early Bird + formularul „Cumpără bilet”.
+// Business Diagnostic Live: formularul „Cumpără bilet”.
 // Formularul trimite datele în Google Sheet (Apps Script, foaia „Inscrieri”, la fel ca newsletterul),
-// apoi duce la linkul de plată din data-payment-url-early / data-payment-url.
+// apoi duce la linkul de plată din data-payment-url (Revolut, £49).
 (() => {
-    // Early Bird: £29 până pe 30.09.2026 23:59 (ora Londrei), apoi £49
-    const EARLY_BIRD_END = new Date('2026-09-30T23:59:59+01:00');
-    const isEarlyBird = () => new Date() <= EARLY_BIRD_END;
-
-    const ticket = () => (isEarlyBird()
-        ? { label: 'Early Bird £29', early: true }
-        : { label: 'Standard £49', early: false });
-
-    // ----- Preț afișat pe pagină -----
-    if (!isEarlyBird()) {
-        document.querySelectorAll('[data-early-bird]').forEach(el => { el.hidden = true; });
-        document.querySelectorAll('[data-regular-price]').forEach(el => { el.hidden = false; });
-    } else {
-        const days = Math.ceil((EARLY_BIRD_END - new Date()) / 86400000);
-        const text = days <= 1 ? 'Ultima zi la preț Early Bird!' : `Mai sunt ${days} zile la preț Early Bird`;
-        document.querySelectorAll('[data-early-bird-countdown]').forEach(el => { el.textContent = text; });
-    }
+    const TICKET = 'Bilet £49';
 
     // ----- Fereastra cu formularul -----
     const dialog = document.getElementById('ticket-dialog');
@@ -29,7 +13,7 @@
     const submit = form.querySelector('[type="submit"]');
     const submitLabel = form.querySelector('[data-submit-label]');
 
-    const paymentUrl = () => (ticket().early ? form.dataset.paymentUrlEarly : form.dataset.paymentUrl) || '';
+    const paymentUrl = () => form.dataset.paymentUrl || '';
 
     if (paymentUrl()) submitLabel.textContent = 'Continuă spre plată';
 
@@ -94,7 +78,7 @@
             return;
         }
 
-        form.bilet.value = ticket().label;
+        form.bilet.value = TICKET;
 
         const data = new URLSearchParams(new FormData(form));
         data.delete('website');
