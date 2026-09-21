@@ -29,7 +29,7 @@
 
     <main class="bg-white">
 
-        <div class="max-w-6xl mx-auto px-0 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-0 sm:px-6 lg:px-8">
 
             <!-- HERO -->
 
@@ -1376,69 +1376,6 @@
 
         </div>
 
-        <!-- VIDEOS (YouTube, se încarcă doar la click) -->
-        <div class="mt-8 sm:mt-10 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-            <button type="button"
-                    class="yt-lite group relative block w-full overflow-hidden
-                           aspect-video rounded-2xl bg-[#071A3D]
-                           shadow-[0_10px_35px_rgba(7,26,61,0.10)]"
-                    data-yt="eorUgdh6_zM"
-                    aria-label="Redă testimonialul video: testimonial 1">
-                <img src="https://img.youtube.com/vi/eorUgdh6_zM/hqdefault.jpg"
-                     alt=""
-                     loading="lazy"
-                     class="absolute inset-0 h-full w-full object-cover
-                            transition duration-300 group-hover:scale-[1.03]">
-                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             flex h-14 w-14 items-center justify-center
-                             rounded-full bg-[#FF3347] text-white
-                             shadow-lg transition group-hover:scale-110">
-                    <svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-            </button>
-
-
-            <button type="button"
-                    class="yt-lite group relative block w-full overflow-hidden
-                           aspect-video rounded-2xl bg-[#071A3D]
-                           shadow-[0_10px_35px_rgba(7,26,61,0.10)]"
-                    data-yt="sgAXoVleiFk"
-                    aria-label="Redă testimonialul video: testimonial 2">
-                <img src="https://img.youtube.com/vi/sgAXoVleiFk/hqdefault.jpg"
-                     alt=""
-                     loading="lazy"
-                     class="absolute inset-0 h-full w-full object-cover
-                            transition duration-300 group-hover:scale-[1.03]">
-                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             flex h-14 w-14 items-center justify-center
-                             rounded-full bg-[#FF3347] text-white
-                             shadow-lg transition group-hover:scale-110">
-                    <svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-            </button>
-
-
-            <button type="button"
-                    class="yt-lite group relative block w-full overflow-hidden
-                           aspect-video rounded-2xl bg-[#071A3D]
-                           shadow-[0_10px_35px_rgba(7,26,61,0.10)]"
-                    data-yt="emfsPh5XBB0"
-                    aria-label="Redă testimonialul video: testimonial 3">
-                <img src="https://img.youtube.com/vi/emfsPh5XBB0/hqdefault.jpg"
-                     alt=""
-                     loading="lazy"
-                     class="absolute inset-0 h-full w-full object-cover
-                            transition duration-300 group-hover:scale-[1.03]">
-                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             flex h-14 w-14 items-center justify-center
-                             rounded-full bg-[#FF3347] text-white
-                             shadow-lg transition group-hover:scale-110">
-                    <svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-            </button>
-
-        </div>
 
     </div>
 
@@ -2096,23 +2033,6 @@ de cineva înaintea ta.
     <script src="./src/js/components.js"></script>
     <script src="./src/js/cookies.js"></script>
 
-    <script>
-        // Testimoniale video: încarcă playerul YouTube doar la click
-        document.querySelectorAll('.yt-lite').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var iframe = document.createElement('iframe');
-                iframe.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.yt + '?autoplay=1&rel=0';
-                iframe.title = btn.getAttribute('aria-label');
-                iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
-                iframe.allowFullscreen = true;
-                iframe.className = 'absolute inset-0 h-full w-full';
-                var frame = document.createElement('div');
-                frame.className = btn.className;
-                frame.appendChild(iframe);
-                btn.replaceWith(frame);
-            });
-        });
-    </script>
 
 </body>
 </html>
