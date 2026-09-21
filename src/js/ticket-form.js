@@ -62,7 +62,7 @@
         const firstInvalid = fields.find(input => input.type !== 'checkbox' && !isValid(input));
         if (firstInvalid) return fail(firstInvalid, firstInvalid.dataset.error || 'Completează corect toate câmpurile.');
 
-        if (contacts.every(input => !input.value.trim())) {
+        if (contacts.length && contacts.every(input => !input.value.trim())) {
             contacts.forEach(input => input.setAttribute('aria-invalid', 'true'));
             return fail(contacts[0], 'Completează emailul sau numărul de telefon (cel puțin unul).');
         }
