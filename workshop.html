@@ -88,14 +88,21 @@
                        sm:h-[440px]
                        sm:object-cover
                        sm:object-right
-                       lg:inset-0
+                       lg:inset-y-0 lg:left-auto lg:right-0
+                       lg:w-[40%]
                        lg:h-full
-                       lg:object-center"
+                       lg:object-[78%_center]"
             >
+
+            <!-- DESKTOP: estompează marginea stângă a pozei -->
+            <div class="pointer-events-none hidden lg:block
+                        absolute inset-y-0 left-[60%] w-20
+                        bg-gradient-to-r from-white to-transparent">
+            </div>
 
             <!-- CONTENT -->
            <div class="sm:relative z-10
-            max-w-[650px]
+            max-w-[650px] lg:max-w-[60%]
             px-5 sm:px-10 lg:px-14
             pt-5 sm:pt-10 lg:pt-16
             pb-8 sm:pb-12">
@@ -139,7 +146,7 @@
                            max-w-[50%] sm:max-w-none
                            text-[24px] min-[400px]:text-[27px]
                            sm:text-[40px]
-                           lg:text-[64px]
+                           lg:text-[56px]
                            font-black
                            uppercase
                            tracking-[-0.045em]
@@ -201,12 +208,12 @@
                 <!-- EVENT INFO -->
               <div class="mt-6 flex flex-col sm:flex-row
             items-start sm:items-center
-            gap-4 sm:gap-6">
+            gap-4 sm:gap-6 lg:gap-5">
 
                     <!-- DATE -->
-                   <div class="flex items-center gap-3">
+                   <div class="flex items-center gap-3 lg:gap-2.5 whitespace-nowrap">
 
-                        <div class="flex h-12 w-12
+                        <div class="flex h-12 w-12 lg:h-10 lg:w-10 shrink-0
                                     items-center justify-center
                                     rounded-xl
                                     bg-[#EEF4FF]
@@ -242,16 +249,16 @@
 
 
                     <!-- DIVIDER -->
-                    <div class="hidden sm:block
+                    <div class="hidden sm:block lg:hidden
                                 w-px h-10
                                 bg-[#D6DEE8]">
                     </div>
 
 
                     <!-- ONLINE -->
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 lg:gap-2.5 whitespace-nowrap">
 
-                        <div class="flex h-12 w-12
+                        <div class="flex h-12 w-12 lg:h-10 lg:w-10 shrink-0
                                     items-center justify-center
                                     rounded-xl
                                     bg-[#EEF4FF]
@@ -287,16 +294,16 @@
 
 
                     <!-- DIVIDER -->
-                    <div class="hidden sm:block
+                    <div class="hidden sm:block lg:hidden
                                 w-px h-10
                                 bg-[#D6DEE8]">
                     </div>
 
 
                     <!-- DURATION -->
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 lg:gap-2.5 whitespace-nowrap">
 
-                        <div class="flex h-12 w-12
+                        <div class="flex h-12 w-12 lg:h-10 lg:w-10 shrink-0
                                     items-center justify-center
                                     rounded-xl
                                     bg-[#EEF4FF]
