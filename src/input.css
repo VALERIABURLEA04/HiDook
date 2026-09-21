@@ -311,3 +311,43 @@ label.cookie-category { cursor: pointer; }
         bottom: 14px;
     }
 }
+
+/* ---------- Formular înscriere eveniment ---------- */
+.event-form {
+    border-top: 1px solid #E4E7EC;
+    padding-top: 16px;
+}
+
+.event-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475467;
+}
+
+.event-field input {
+    width: 100%;
+    border: 1px solid #D0D5DD;
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #101828;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.event-field input:focus {
+    outline: none;
+    border-color: #064FC4;
+    box-shadow: 0 0 0 3px rgba(6, 79, 196, 0.15);
+}
+
+.event-field input[aria-invalid="true"] {
+    border-color: #E5484D;
+}
+
+.event-form-status[data-state="ok"] { color: #067647; }
+.event-form-status[data-state="error"] { color: #D92D20; }

@@ -470,7 +470,7 @@
                 <!-- CTA -->
                 <div class="mt-4">
 
-                    <a href="#participare"
+                    <a href="#participare" data-ticket-open
    class="inline-flex
           w-full sm:w-auto
           sm:min-w-[270px]
@@ -846,7 +846,7 @@
 
 
             <!-- CTA -->
-            <a href="#bilete"
+            <a href="#participare" data-ticket-open
                class="mt-6
                       inline-flex items-center justify-center gap-3
                       rounded-xl
@@ -1809,7 +1809,7 @@ de cineva înaintea ta.
 
 
                     <!-- CTA -->
-                    <a href="#"
+                    <a href="#participare" data-ticket-open
                        class="mt-8
                               w-full
                               inline-flex
@@ -1997,6 +1997,110 @@ de cineva înaintea ta.
 
     </main>
 
+
+<!-- CUMPĂRĂ BILET: formular → Google Sheet ("Inscrieri"), apoi plata -->
+<dialog id="ticket-dialog"
+        aria-labelledby="ticket-title"
+        class="m-auto w-[calc(100%-24px)] max-w-lg
+               rounded-2xl bg-white p-0
+               shadow-[0_30px_80px_rgba(7,26,61,0.35)]
+               backdrop:bg-[#071A3D]/55">
+
+    <!--
+        LINK DE PLATĂ: lipește linkurile în data-payment-url-early (preț Early Bird, până pe 30.09)
+        și data-payment-url (preț standard). Cât timp sunt goale, formularul doar salvează datele
+        și spune că detaliile de plată vin pe email.
+    -->
+    <form id="ticket-form"
+          class="p-5 sm:p-7"
+          data-endpoint="https://script.google.com/macros/s/AKfycbxJWx7yrqNbVY4Dh_4cyuQWztptwy1lPfrk91XgThTTliir_OrjmtmMukjrVH-jFsJJ/exec"
+          data-payment-url-early=""
+          data-payment-url=""
+          novalidate>
+
+        <input type="hidden" name="tip" value="eveniment">
+        <input type="hidden" name="eveniment" value="Business Diagnostic Live · 6 octombrie">
+        <input type="hidden" name="bilet" value="">
+
+        <!-- anti-spam: câmp invizibil pentru oameni -->
+        <div class="hidden" aria-hidden="true">
+            <label>Nu completa <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#064FC4]">
+                    Business Diagnostic Live
+                </p>
+                <h2 id="ticket-title" class="mt-1 text-2xl font-bold tracking-tight text-[#071A3D]">
+                    Cumpără bilet
+                </h2>
+            </div>
+            <button type="button" data-ticket-close
+                    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full
+                           text-2xl leading-none text-[#475467] hover:bg-[#F2F4F7]"
+                    aria-label="Închide">×</button>
+        </div>
+
+        <div class="mt-4 flex items-center justify-between gap-3 rounded-xl bg-[#EEF4FF] px-4 py-3">
+            <span class="text-sm font-semibold text-[#29466D]">6 octombrie · Online · 2h+</span>
+            <span class="text-right">
+                <span data-early-bird class="inline-flex items-center gap-1.5">
+                    <span class="text-sm text-[#98A2B3] line-through">£49</span>
+                    <span class="text-xl font-bold text-[#071A3D]">£29</span>
+                </span>
+                <span data-regular-price hidden class="text-xl font-bold text-[#071A3D]">£49</span>
+            </span>
+        </div>
+
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            <label class="event-field">
+                <span>Nume</span>
+                <input type="text" name="nume" autocomplete="family-name" required data-error="Completează numele.">
+            </label>
+            <label class="event-field">
+                <span>Prenume</span>
+                <input type="text" name="prenume" autocomplete="given-name" required data-error="Completează prenumele.">
+            </label>
+            <label class="event-field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" inputmode="email" data-contact data-error="Emailul nu pare corect.">
+            </label>
+            <label class="event-field">
+                <span>Număr de telefon</span>
+                <input type="tel" name="telefon" autocomplete="tel" inputmode="tel" placeholder="+44 ..." pattern="[0-9+\(\)\s\-]{7,20}" data-contact data-error="Numărul de telefon nu pare corect.">
+            </label>
+        </div>
+
+        <p class="mt-2 text-[13px] text-[#7B8798]">Completează emailul sau numărul de telefon (cel puțin unul).</p>
+
+        <label class="event-field mt-3">
+            <span>Compania / afacerea ta <span class="font-normal text-[#98A2B3]">(opțional)</span></span>
+            <input type="text" name="companie" autocomplete="organization" maxlength="150">
+        </label>
+
+        <label class="mt-3 flex items-start gap-2 text-[13px] leading-[1.45] text-[#667085]">
+            <input type="checkbox" name="acord" value="da" required data-error="Bifează acordul ca să putem să te contactăm." class="mt-0.5 h-4 w-4 shrink-0 accent-[#064FC4]">
+            <span>Sunt de acord ca Hidook să mă contacteze cu detalii despre acest eveniment și despre plata biletului.
+                <a href="./cookies.html" class="font-semibold text-[#064FC4] underline underline-offset-2">Confidențialitate</a></span>
+        </label>
+
+        <button type="submit"
+                class="mt-5 inline-flex w-full items-center justify-center gap-2
+                       rounded-xl bg-[#FF3548] hover:bg-[#E92F41]
+                       px-5 py-3.5
+                       text-base font-bold text-white
+                       shadow-lg transition
+                       disabled:opacity-60 disabled:cursor-wait">
+            <span data-submit-label>Rezervă biletul</span>
+            <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="event-form-status mt-3 text-[14px] font-medium" role="status" aria-live="polite"></p>
+
+    </form>
+</dialog>
+
 <!-- FOOTER (ca în newsletter) -->
 <footer class="bg-[#EEF4FF] border-t-[3px] border-[#064FC4]">
 
@@ -2133,25 +2237,8 @@ de cineva înaintea ta.
 
     <script src="./src/js/components.js"></script>
     <script src="./src/js/cookies.js"></script>
+    <script src="./src/js/ticket-form.js"></script>
 
-    <script>
-        // Early Bird: £29 până pe 30.09.2026 (ora Londrei), apoi £49 automat
-        (function () {
-            var deadline = new Date('2026-09-30T23:59:59+01:00');
-            var now = new Date();
-
-            if (now > deadline) {
-                document.querySelectorAll('[data-early-bird]').forEach(function (el) { el.hidden = true; });
-                document.querySelectorAll('[data-regular-price]').forEach(function (el) { el.hidden = false; });
-                return;
-            }
-
-            var days = Math.ceil((deadline - now) / 86400000);
-            var text = days <= 1 ? 'Ultima zi la preț Early Bird!'
-                     : 'Mai sunt ' + days + ' zile la preț Early Bird';
-            document.querySelectorAll('[data-early-bird-countdown]').forEach(function (el) { el.textContent = text; });
-        })();
-    </script>
 
 
 </body>
