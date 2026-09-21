@@ -22,8 +22,11 @@
         status.dataset.state = state;
     };
 
+    let openedAt = 0;
+
     const open = event => {
         event.preventDefault();
+        openedAt = Date.now();
         setStatus('', '');
         dialog.showModal();
         form.querySelector('input:not([type="hidden"]):not([tabindex="-1"])').focus();
@@ -70,8 +73,9 @@
         const consent = required.find(input => input.type === 'checkbox' && !input.checked);
         if (consent) return fail(consent, consent.dataset.error || 'Bifează acordul.');
 
-        // Boții completează câmpul invizibil; oamenii nu îl văd
-        if (form.website.value) return;
+        // Boții completează câmpul invizibil și trimit instant. Autofill-ul poate completa și el
+        // câmpul, așa că îl considerăm bot doar dacă trimiterea vine sub 3 secunde de la deschidere.
+        if (form.hp_check.value && Date.now() - openedAt < 3000) return;
 
         if (!navigator.onLine) {
             setStatus('Nu ești conectat la internet. Verifică conexiunea și încearcă din nou.', 'error');
@@ -81,29 +85,36 @@
         form.bilet.value = TICKET;
 
         const data = new URLSearchParams(new FormData(form));
-        data.delete('website');
+        data.delete('hp_check');
         data.append('pagina', window.location.href);
 
-        // Apps Script nu permite citirea răspunsului (CORS): trimitem în fundal.
-        // sendBeacon continuă chiar dacă pagina pleacă spre plată.
-        const endpoint = form.dataset.endpoint;
-        const queued = navigator.sendBeacon?.(endpoint, data);
-        if (!queued) {
-            fetch(endpoint, { method: 'POST', mode: 'no-cors', body: data, keepalive: true })
-                .catch(() => console.warn('Formular bilet: trimiterea în fundal a eșuat.'));
-        }
-
         fields.forEach(input => input.removeAttribute('aria-invalid'));
+        submit.disabled = true;
+        setStatus('Se trimit datele…', 'ok');
 
-        const url = paymentUrl();
-        if (url) {
-            submit.disabled = true;
-            setStatus('Datele au fost salvate. Te ducem la plată…', 'ok');
-            setTimeout(() => { window.location.href = url; }, 700);
-            return;
-        }
+        send(form.dataset.endpoint, data).then(() => {
+            const url = paymentUrl();
+            if (url) {
+                setStatus('Datele au fost salvate. Te ducem la plată…', 'ok');
+                window.location.href = url;
+                return;
+            }
 
-        form.reset();
-        setStatus('Mulțumim! Ți-am rezervat biletul. Îți trimitem pe email detaliile de plată.', 'ok');
+            submit.disabled = false;
+            form.reset();
+            setStatus('Mulțumim! Ți-am rezervat biletul. Îți trimitem pe email detaliile de plată.', 'ok');
+        });
     });
+
+    // Apps Script nu permite citirea răspunsului (CORS), dar așteptăm ca cererea să plece
+    // înainte să părăsim pagina. keepalive o ține vie și dacă pagina se schimbă;
+    // după 4 secunde mergem mai departe oricum.
+    function send(endpoint, data) {
+        const request = fetch(endpoint, { method: 'POST', mode: 'no-cors', body: data, keepalive: true })
+            .catch(() => {
+                if (!navigator.sendBeacon?.(endpoint, data)) console.warn('Formular bilet: trimiterea a eșuat.');
+            });
+        const timeout = new Promise(resolve => setTimeout(resolve, 4000));
+        return Promise.race([request, timeout]);
+    }
 })();
