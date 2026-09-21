@@ -29,7 +29,7 @@
 
     <main class="bg-white">
 
-        <div class="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-0 sm:px-6 lg:px-8">
 
             <!-- HERO -->
 
@@ -39,7 +39,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
        <div class="relative
-            min-h-[760px] sm:min-h-[700px] lg:min-h-[680px]
+            lg:min-h-[680px]
             overflow-hidden
             rounded-2xl sm:rounded-[28px]
             bg-white
@@ -47,33 +47,47 @@
 
             <!-- HERO IMAGE -->
             <img
-                src="./imagess/Дизайн без названия (1).png"
+                src="./imagess/workshop-hero.webp"
                 alt="Sergiu Diaconu - Business Diagnostic Live"
-                class="absolute inset-0
-                       w-full h-full
-                       object-cover
-                       object-center"
+                class="block w-full h-auto
+                       sm:absolute sm:inset-x-0 sm:top-0
+                       sm:h-[440px]
+                       sm:object-cover
+                       sm:object-right
+                       lg:inset-0
+                       lg:h-full
+                       lg:object-center"
             >
 
             <!-- CONTENT -->
-           <div class="relative z-10
+           <div class="sm:relative z-10
             max-w-[650px]
             px-5 sm:px-10 lg:px-14
-            pt-8 sm:pt-14 lg:pt-16
+            pt-5 sm:pt-10 lg:pt-16
             pb-8 sm:pb-12">
 
+                <!-- TEXT BOX: next to the speaker on tablet -->
+                <div class="sm:max-w-[40%] sm:min-h-[380px] lg:max-w-none lg:min-h-0">
+
+                <!-- TITLE BOX: over the white part of the photo on phone -->
+                <div class="absolute inset-x-0 top-0 z-10
+                            aspect-[1366/768]
+                            flex flex-col justify-center
+                            px-4
+                            sm:static sm:block sm:aspect-auto sm:px-0">
+
                 <!-- EYEBROW -->
-                <div class="flex items-center gap-3 mb-5">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5 max-w-[50%] sm:max-w-none">
 
                     <span class="w-2.5 h-2.5
                                  rounded-full
                                  bg-[#FF3347]">
                     </span>
 
-                    <span class="text-xs sm:text-sm
+                    <span class="text-[10px] sm:text-sm
                                  font-semibold
                                  uppercase
-                                 tracking-[0.20em]
+                                 tracking-[0.14em] sm:tracking-[0.20em]
                                  text-[#29466D]">
                         Workshop · Panel interactiv
                     </span>
@@ -88,9 +102,10 @@
 
                 <!-- TITLE -->
                 <h1 class="font-['Inter']
-                           text-[36px]
-sm:text-[52px]
-lg:text-[64px]
+                           max-w-[50%] sm:max-w-none
+                           text-[24px] min-[400px]:text-[27px]
+                           sm:text-[40px]
+                           lg:text-[64px]
                            font-black
                            uppercase
                            tracking-[-0.045em]
@@ -107,8 +122,8 @@ lg:text-[64px]
 
                             <span class="absolute
                                          left-0 right-0
-                                         -bottom-2
-                                         h-[6px]
+                                         -bottom-1.5 sm:-bottom-2
+                                         h-1 sm:h-[6px]
                                          rounded-full
                                          bg-[#FFC83D]">
                             </span>
@@ -118,9 +133,11 @@ lg:text-[64px]
 
                 </h1>
 
+                </div>
+
 
                 <!-- SUBTITLE -->
-                <h2 class="mt-6
+                <h2 class="sm:mt-6
                            text-xl sm:text-2xl lg:text-[27px]
                            font-bold
                            leading-tight
@@ -144,6 +161,8 @@ lg:text-[64px]
 
                 </p>
 
+                </div>
+
 
                 <!-- EVENT INFO -->
               <div class="mt-6 flex flex-col sm:flex-row
@@ -151,7 +170,7 @@ lg:text-[64px]
             gap-4 sm:gap-6">
 
                     <!-- DATE -->
-                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                   <div class="flex items-center gap-3">
 
                         <div class="flex h-12 w-12
                                     items-center justify-center
@@ -254,96 +273,137 @@ lg:text-[64px]
                     </svg>
 
                     <p class="text-sm font-medium text-[#52627A]">
-                        Ora evenimentului în diferite fusuri orare
+                        Ora evenimentului<span class="hidden sm:inline"> în diferite fusuri orare</span>
                     </p>
+
+                    <span class="sm:hidden ml-auto shrink-0 text-xs text-[#98A2B3]">
+                        glisează →
+                    </span>
 
                 </div>
 
 
                 <!-- TIME ZONES -->
-              <div class="grid grid-cols-3 gap-3">
+              <div class="mt-3 -mx-5 px-5 py-1
+                          flex gap-2 overflow-x-auto snap-x snap-mandatory scroll-px-5
+                          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                          sm:mx-0 sm:px-0 sm:py-0
+                          sm:grid sm:grid-cols-3 sm:gap-3 sm:overflow-visible">
 
-                    <div class="rounded-xl
+                    <div class="shrink-0 snap-start
+                                flex items-baseline gap-2
+                                rounded-full sm:rounded-xl
                                 border border-[#E4EAF1]
                                 bg-white/95
-                                px-3 sm:px-4 py-3
-                                shadow-sm">
+                                px-4 py-2 sm:py-3
+                                shadow-sm
+                                sm:block">
 
-                        <p class="text-[12px] sm:text-[13px] text-[#46546A]">
+                        <p class="whitespace-nowrap text-[13px] text-[#46546A]">
                             Londra
                         </p>
 
-                          <p class="mt-1 text-lg sm:text-xl font-semibold text-[#064FC4]">
+                          <p class="sm:mt-1 text-base sm:text-xl font-semibold text-[#064FC4]">
                             18:30
                         </p>
 
                     </div>
 
 
-                    <div class="rounded-xl border border-[#E4EAF1]
-                                bg-white/95 px-3 sm:px-4 py-3 shadow-sm">
+                    <div class="shrink-0 snap-start
+                                flex items-baseline gap-2
+                                rounded-full sm:rounded-xl
+                                border border-[#E4EAF1]
+                                bg-white/95
+                                px-4 py-2 sm:py-3
+                                shadow-sm
+                                sm:block">
 
-                        <p class="text-[12px] sm:text-[13px] text-[#46546A]">
+                        <p class="whitespace-nowrap text-[13px] text-[#46546A]">
                             Paris
                         </p>
 
-                        <p class="mt-1 text-lg sm:text-xl font-semibold text-[#064FC4]">
+                        <p class="sm:mt-1 text-base sm:text-xl font-semibold text-[#064FC4]">
                             19:30
                         </p>
 
                     </div>
 
 
-                    <div class="rounded-xl border border-[#E4EAF1]
-                                bg-white/95 px-3 sm:px-4 py-3 shadow-sm">
+                    <div class="shrink-0 snap-start
+                                flex items-baseline gap-2
+                                rounded-full sm:rounded-xl
+                                border border-[#E4EAF1]
+                                bg-white/95
+                                px-4 py-2 sm:py-3
+                                shadow-sm
+                                sm:block">
 
-                           <p class="text-[12px] sm:text-[13px] text-[#46546A]">
+                           <p class="whitespace-nowrap text-[13px] text-[#46546A]">
                             București / Chișinău
                         </p>
 
-                        <p class="mt-1 text-lg sm:text-xl font-semibold text-[#064FC4]">
+                        <p class="sm:mt-1 text-base sm:text-xl font-semibold text-[#064FC4]">
                             20:30
                         </p>
 
                     </div>
 
 
-                    <div class="rounded-xl border border-[#E4EAF1]
-                                bg-white/95 px-3 sm:px-4 py-3 shadow-sm">
+                    <div class="shrink-0 snap-start
+                                flex items-baseline gap-2
+                                rounded-full sm:rounded-xl
+                                border border-[#E4EAF1]
+                                bg-white/95
+                                px-4 py-2 sm:py-3
+                                shadow-sm
+                                sm:block">
 
-                      <p class="text-[12px] sm:text-[13px] text-[#46546A]">
+                      <p class="whitespace-nowrap text-[13px] text-[#46546A]">
                             New York / Montreal
                         </p>
 
-                        <p class="mt-1 text-lg sm:text-xl font-semibold text-[#064FC4]">
+                        <p class="sm:mt-1 text-base sm:text-xl font-semibold text-[#064FC4]">
                             13:30
                         </p>
 
                     </div>
 
 
-                    <div class="rounded-xl border border-[#E4EAF1]
-                                bg-white/95 px-3 sm:    px-4 py-3 shadow-sm">
+                    <div class="shrink-0 snap-start
+                                flex items-baseline gap-2
+                                rounded-full sm:rounded-xl
+                                border border-[#E4EAF1]
+                                bg-white/95
+                                px-4 py-2 sm:py-3
+                                shadow-sm
+                                sm:block">
 
-                      <p class="text-[12px] sm:text-[13px] text-[#46546A]">
+                      <p class="whitespace-nowrap text-[13px] text-[#46546A]">
                             Los Angeles / San Francisco
                         </p>
 
-                        <p class="mt-1 text-lg sm:text-xl font-semibold text-[#064FC4]">
+                        <p class="sm:mt-1 text-base sm:text-xl font-semibold text-[#064FC4]">
                             10:30
                         </p>
 
                     </div>
 
 
-                    <div class="rounded-xl border border-[#E4EAF1]
-                                bg-white/95 px-3 sm:px-4 py-3 shadow-sm">
+                    <div class="shrink-0 snap-start
+                                flex items-baseline gap-2
+                                rounded-full sm:rounded-xl
+                                border border-[#E4EAF1]
+                                bg-white/95
+                                px-4 py-2 sm:py-3
+                                shadow-sm
+                                sm:block">
 
-                      <p class="text-[12px] sm:text-[13px] text-[#46546A]">
+                      <p class="whitespace-nowrap text-[13px] text-[#46546A]">
                             Chicago
                         </p>
 
-                       <p class="mt-1 text-lg sm:text-xl font-semibold text-[#064FC4]">
+                       <p class="sm:mt-1 text-base sm:text-xl font-semibold text-[#064FC4]">
                             12:30
                         </p>
 
@@ -385,7 +445,7 @@ lg:text-[64px]
 
                     <span class="w-10 h-px bg-[#9FB0C5]"></span>
 
-                    <p class="text-[9px] sm:text-[10px]
+                    <p class="text-[11px]
                               uppercase
                               tracking-[0.18em]
                               font-semibold
@@ -943,7 +1003,7 @@ lg:text-[64px]
             <div class="w-full
        max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]
        h-[420px] sm:h-[480px] lg:h-[540px]
-       object-cover
+       mx-auto lg:mx-0
        rounded-2xl sm:rounded-3xl
        shadow-xl">
 
@@ -952,7 +1012,7 @@ lg:text-[64px]
                     alt="Sergiu Diaconu"
                     class="w-full
                            max-w-[420px]
-                           h-[540px]
+                           h-full
                            object-cover
                            rounded-3xl
                            shadow-xl"
