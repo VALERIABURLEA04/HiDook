@@ -34,7 +34,8 @@ cat > "$DIST/vercel.json" <<'JSON'
   "framework": null,
   "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "rewrites": [{ "source": "/lidia", "destination": "/" }]
 }
 JSON
 

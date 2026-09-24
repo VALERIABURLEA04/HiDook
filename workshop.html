@@ -20,7 +20,7 @@
         rel="stylesheet"
     >
 
-    <link href="./src/output.css?v=202609222340" rel="stylesheet">
+    <link href="./src/output.css?v=202609241200" rel="stylesheet">
 </head>
 
 <body class="bg-white text-slate-900">
@@ -1732,9 +1732,8 @@ de cineva înaintea ta.
 
                         <span class="mt-2
                                      text-3xl
-                                     font-semibold">
-                            £
-                        </span>
+                                     font-semibold"
+                              data-currency>£</span>
 
                         <span class="text-7xl
                                      font-bold
@@ -1994,11 +1993,17 @@ de cineva înaintea ta.
                shadow-[0_30px_80px_rgba(7,26,61,0.35)]
                backdrop:bg-[#071A3D]/55">
 
-    <!-- LINK DE PLATĂ (Revolut, £49): după salvarea datelor, omul e trimis aici -->
+    <!--
+        LINKURI DE PLATĂ (Revolut, 49 în moneda regiunii). După salvarea datelor, omul e trimis la linkul regiunii lui:
+        Canada → data-payment-url-ca (CA$49), Europa → data-payment-url-eu (€49), restul → data-payment-url (£49).
+        Regiunea o alege src/js/ticket-form.js; workshop.hidook.com/lidia arată mereu varianta Canada.
+    -->
     <form id="ticket-form"
           class="p-5 sm:p-7"
           data-endpoint="https://script.google.com/macros/s/AKfycbxJWx7yrqNbVY4Dh_4cyuQWztptwy1lPfrk91XgThTTliir_OrjmtmMukjrVH-jFsJJ/exec"
           data-payment-url="https://checkout.revolut.com/pay/016b3077-79fc-45a1-b04a-023bc7b7e8b5"
+          data-payment-url-eu="https://checkout.revolut.com/pay/5734da28-26e8-44c6-ac58-c7419ba8def1"
+          data-payment-url-ca="https://checkout.revolut.com/pay/6c2a68e8-cebd-4eb9-b81e-993b9f0b7c8f"
           novalidate>
 
         <input type="hidden" name="tip" value="eveniment">
@@ -2028,7 +2033,7 @@ de cineva înaintea ta.
         <div class="mt-4 flex items-center justify-between gap-3 rounded-xl bg-[#EEF4FF] px-4 py-3">
             <span class="text-sm font-semibold text-[#29466D]">6 octombrie · Online · 2h+</span>
             <span class="text-right">
-                <span class="text-xl font-bold text-[#071A3D]">£49</span>
+                <span class="text-xl font-bold text-[#071A3D]" data-price>£49</span>
             </span>
         </div>
 
@@ -2217,8 +2222,8 @@ de cineva înaintea ta.
 </div>
 
     <script src="./src/js/components.js"></script>
-    <script src="./src/js/cookies.js?v=202609222340"></script>
-    <script src="./src/js/ticket-form.js?v=202609222340"></script>
+    <script src="./src/js/cookies.js?v=202609241200"></script>
+    <script src="./src/js/ticket-form.js?v=202609241200"></script>
 
 
 

@@ -1,8 +1,59 @@
 // Business Diagnostic Live: formularul „Cumpără bilet”.
 // Formularul trimite datele în Google Sheet (Apps Script, foaia „Inscrieri”, la fel ca newsletterul),
-// apoi duce la linkul de plată din data-payment-url (Revolut, £49).
+// apoi duce la linkul de plată Revolut al regiunii vizitatorului:
+//   Canada → CA$49 (data-payment-url-ca), Europa → €49 (data-payment-url-eu), restul → £49 (data-payment-url).
+// workshop.hidook.com/lidia arată mereu varianta Canada. Test: ?regiune=ca | eu | uk
 (() => {
-    const TICKET = 'Bilet £49';
+    const REGIONS = {
+        uk: { symbol: '£', price: '£49', ticket: 'Bilet £49 (UK)', url: 'paymentUrl' },
+        eu: { symbol: '€', price: '€49', ticket: 'Bilet €49 (Europa)', url: 'paymentUrlEu' },
+        ca: { symbol: 'CA$', price: 'CA$49', ticket: 'Bilet CA$49 (Canada)', url: 'paymentUrlCa' },
+    };
+
+    // Europa (fără Marea Britanie și insulele ei, care rămân pe £)
+    const EUROPE = ('AD AL AT BA BE BG BY CH CY CZ DE DK EE ES FI FO FR GR HR HU IE IS IT LI LT LU LV MC MD ME MK MT '
+        + 'NL NO PL PT RO RS RU SE SI SK SM UA VA XK').split(' ');
+
+    const regionForCountry = country => {
+        if (country === 'CA') return 'ca';
+        if (EUROPE.includes(country)) return 'eu';
+        return 'uk';
+    };
+
+    // fără Cloudflare (ex. local): după fusul orar al browserului
+    const regionFromTimeZone = () => {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (/^America\/(Toronto|Vancouver|Montreal|Edmonton|Winnipeg|Halifax|Regina|St_Johns|Moncton|Whitehorse|Yellowknife|Iqaluit|Glace_Bay|Goose_Bay|Swift_Current|Dawson_Creek|Creston|Fort_Nelson|Rankin_Inlet|Resolute|Cambridge_Bay|Inuvik|Atikokan|Blanc-Sablon)$/.test(tz)) return 'ca';
+        if (/^Europe\/(London|Guernsey|Jersey|Isle_of_Man)$/.test(tz)) return 'uk';
+        if (tz.startsWith('Europe/') || tz === 'Atlantic/Canary' || tz === 'Atlantic/Madeira' || tz === 'Atlantic/Azores') return 'eu';
+        return 'uk';
+    };
+
+    let region = 'uk';
+
+    const applyRegion = r => {
+        region = REGIONS[r] ? r : 'uk';
+        const R = REGIONS[region];
+        document.querySelectorAll('[data-currency]').forEach(el => { el.textContent = R.symbol; });
+        document.querySelectorAll('[data-price]').forEach(el => { el.textContent = R.price; });
+        document.documentElement.dataset.region = region;
+    };
+
+    const detectRegion = async () => {
+        const forced = new URLSearchParams(location.search).get('regiune');
+        if (forced) return forced.toLowerCase();
+        if (/^\/lidia\/?$/i.test(location.pathname)) return 'ca';
+        try {
+            const res = await fetch('/cdn-cgi/trace', { cache: 'no-store' });
+            if (res.ok) {
+                const loc = (await res.text()).match(/^loc=([A-Z]{2})$/m);
+                if (loc) return regionForCountry(loc[1]);
+            }
+        } catch { /* fără Cloudflare */ }
+        return regionFromTimeZone();
+    };
+
+    detectRegion().then(applyRegion);
 
     // ----- Fereastra cu formularul -----
     const dialog = document.getElementById('ticket-dialog');
@@ -13,7 +64,7 @@
     const submit = form.querySelector('[type="submit"]');
     const submitLabel = form.querySelector('[data-submit-label]');
 
-    const paymentUrl = () => form.dataset.paymentUrl || '';
+    const paymentUrl = () => form.dataset[REGIONS[region].url] || form.dataset.paymentUrl || '';
 
     if (paymentUrl()) submitLabel.textContent = 'Continuă spre plată';
 
@@ -82,7 +133,7 @@
             return;
         }
 
-        form.bilet.value = TICKET;
+        form.bilet.value = REGIONS[region].ticket;
 
         const data = new URLSearchParams(new FormData(form));
         data.delete('hp_check');
