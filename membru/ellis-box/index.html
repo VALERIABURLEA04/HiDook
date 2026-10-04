@@ -223,6 +223,11 @@
     </div>
 </section>
 
+    <!-- Noutăți opționale: promoții și oportunități, înaintea galeriei -->
+    <section id="company-highlights" class="hidden bg-[#FAF8F3] pt-8 sm:pt-10" aria-label="Noutăți Ellis Box">
+        <div id="company-highlights-list" class="mx-auto grid max-w-6xl gap-3 px-4 sm:px-6 md:grid-cols-2 lg:px-8"></div>
+    </section>
+
  <!-- GALERIE -->
     <section class="bg-[#FAF8F3] py-8 sm:py-10">
 
@@ -434,63 +439,30 @@
     </section>
 
 
-    <!-- PROMO -->
-<section class="bg-white py-8 sm:py-10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <button
-            onclick="openPromoModal()"
-            class="w-full text-left rounded-2xl
-                   border border-[#F1D36A]
-                   bg-[#FFF9E8]
-                   px-5 py-5 sm:px-6
-                   transition
-                   hover:shadow-md">
-
-            <div class="flex flex-col sm:flex-row
-                        sm:items-center sm:justify-between
-                        gap-4">
-
-                <div class="flex items-start gap-4">
-
-                    <div class="w-11 h-11 shrink-0
-                                rounded-full
-                                bg-[#FFD338]
-                                flex items-center justify-center
-                                text-xl">
-                        🎁
-                    </div>
-
-                    <div>
-                        <p class="text-xs font-bold uppercase
-                                  tracking-wide text-[#8A5A00]">
-                            Promo
-                        </p>
-
-                        <h2 class="mt-1 text-lg sm:text-xl
-                                   font-semibold text-[#334E68]">
-                            10% reducere la prima comandă
-                        </h2>
-                    </div>
-
-                </div>
-
-                <span class="text-sm font-semibold text-[#064FC4]">
-                    Vezi detalii →
-                </span>
-
-            </div>
-
-        </button>
-
-    </div>
-</section>
-
 <div id="company-location"></div>
    
     </main>
 
     <div id="footer"></div>
+
+    <script src="../../src/js/company-highlights.js"></script>
+    <script>
+        // Omiterea unei chei ascunde cardul; fără ambele chei se ascunde toată secțiunea.
+        renderCompanyHighlights("company-highlights", {
+            promo: {
+                title: "10% reducere la prima comandă",
+                // description: "Cere detalii despre ofertă direct de la Ellis Box.",
+                action: "Întreabă despre ofertă",
+                href: "mailto:ellisfruit2025@gmail.com?subject=Oferta%20Ellis%20Box"
+            },
+            jobs: {
+                title: "Posturi vacante",
+                // description: "Află dacă există oportunități disponibile.",
+                // action: "Întreabă despre posturi",
+                href: "mailto:ellisfruit2025@gmail.com?subject=Oportunitati%20Ellis%20Box"
+            }
+        });
+    </script>
 
     <script>
         async function loadComponent(id, path) {
