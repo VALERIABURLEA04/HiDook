@@ -209,12 +209,7 @@ location: {
 function createPremiumCard(company) {
 
     return `
-        <div class="relative overflow-hidden
-                    rounded-3xl
-                    border border-[#E8E5DE]
-                    bg-white
-                    shadow-sm
-                    p-4 sm:p-4">
+        <article class="relative rounded-2xl bg-white p-5 shadow-[0_8px_30px_-18px_rgba(16,24,46,0.28)] sm:p-7">
 
             <!-- PREMIUM -->
             <div class="absolute top-0 right-0
@@ -222,30 +217,28 @@ function createPremiumCard(company) {
                         text-[#064FC4]
                         text-xs
                         font-bold
-                        px-3.5 py-1.5
-                        rounded-bl-2xl">
+                        px-4 py-2
+                        rounded-bl-xl rounded-tr-2xl">
                 PREMIUM
             </div>
 
 
-            <div class="grid gap-4
-                        md:grid-cols-[95px_1fr]
-                        md:items-center">
+            <div class="grid gap-5 sm:grid-cols-[96px_minmax(0,1fr)] sm:gap-7">
 
                 <!-- LOGO -->
-                <div class="flex justify-center md:justify-start">
+                <div class="flex justify-start">
 
-                    <div class="w-20 h-20
+                    <div class="w-20 h-20 shrink-0
                                 sm:w-24 sm:h-24
                                 rounded-full
                                 overflow-hidden
                                 border border-[#E4E7EC]
-                                bg-[#F8F5ED]
-                                shadow-sm">
+                                bg-[#F8F5ED]">
 
                         <img
                             src="${company.logo}"
                             alt="${company.name}"
+                            width="96" height="96" loading="lazy"
                             class="w-full h-full object-cover"
                         >
 
@@ -255,7 +248,7 @@ function createPremiumCard(company) {
 
 
                 <!-- CONTENT -->
-                <div class="text-center md:text-left">
+                <div class="min-w-0 text-left">
 
                     <!-- CATEGORY -->
                     <span class="inline-block
@@ -272,22 +265,22 @@ function createPremiumCard(company) {
 
 
                     <!-- NAME -->
-                    <h2 class="mt-2
+                    <h3 class="mt-3
                                text-xl sm:text-2xl
-                               font-semibold
+                               font-bold
                                tracking-tight
                                text-[#064FC4]">
 
                         ${company.name}
 
-                    </h2>
+                    </h3>
 
 
                     <!-- SLOGAN -->
-                    <p class="mt-1.5
-                              text-sm sm:text-base
-                              font-medium
-                              leading-5
+                    <p class="mt-2
+                              text-base
+                              font-semibold
+                              leading-6
                               text-[#334E68]">
 
                         ${company.slogan}
@@ -296,10 +289,10 @@ function createPremiumCard(company) {
 
 
                     <!-- DESCRIPTION -->
-                    <p class="mt-1.5
-                              text-sm
-                              leading-5
-                              text-[#667085]">
+                    <p class="mt-2
+                              text-sm sm:text-base
+                              leading-6
+                              text-[#46546A]">
 
                         ${company.description}
 
@@ -307,16 +300,15 @@ function createPremiumCard(company) {
 
 
                     <!-- FEATURES -->
-                    <div class="mt-3
+                    <div class="mt-5
                                 flex flex-wrap
-                                justify-center md:justify-start
-                                gap-1.5">
+                                gap-2">
 
                         ${company.features.map(feature => `
                             <span class="rounded-full
                                          bg-[#F8F5ED]
-                                         px-2.5 py-1
-                                         text-xs
+                                         px-3 py-1.5
+                                         text-xs sm:text-sm
                                          font-medium
                                          text-[#46546A]">
 
@@ -328,7 +320,7 @@ function createPremiumCard(company) {
                     </div>
 
                     <!-- PROMO / JOBS -->
-<div class="mt-3 flex flex-wrap justify-center md:justify-start gap-2">
+<div class="mt-4 flex flex-wrap gap-2">
 
     ${company.promo ? `
         <span class="rounded-lg
@@ -337,7 +329,7 @@ function createPremiumCard(company) {
                      text-xs
                      font-semibold
                      text-[#8A5A00]">
-            🎁 ${company.promo.title}
+            ${company.promo.title}
         </span>
     ` : ""}
 
@@ -348,30 +340,30 @@ function createPremiumCard(company) {
                      text-xs
                      font-semibold
                      text-[#064FC4]">
-            💼 ${company.jobs[0].title}
+            ${company.jobs[0].title}
         </span>
     ` : ""}
 
 </div>
 
                     <!-- BUTTON -->
-                    <div class="mt-3">
+                    <div class="mt-6">
 
                         <a href="${company.url}"
-                           class="inline-flex items-center justify-center
+                           class="inline-flex min-h-11 w-full items-center justify-center text-center sm:w-auto
                                   rounded-xl
-                                  bg-[#064FC4]
-                                  px-4 py-2
+                                   bg-[#064FC4]
+                                   px-5 py-2.5
                                   text-sm
-                                  font-semibold
+                                   font-bold
                                   text-white
-                                  transition
+                                   transition-colors
                                   hover:bg-[#124BFF]
-                                  hover:-translate-y-0.5">
+                                   focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#064FC4]">
 
                             Descoperă ${company.name}
 
-                            <span class="ml-2">→</span>
+                            <span class="ml-2" aria-hidden="true">→</span>
 
                         </a>
 
@@ -381,35 +373,28 @@ function createPremiumCard(company) {
 
             </div>
 
-        </div>
+        </article>
     `;
 }
-// function renderPremiumCards() {
-
-//     const container = document.getElementById("premium-companies");
-
-//     if (!container) return;
-
-//     container.innerHTML = premiumCompanies
-//         .map(company => createPremiumCard(company))
-//         .join("");
-// }
-
 
 function renderPremiumCards(companies = premiumCompanies) {
 
     const container = document.getElementById("premium-companies");
+    const count = document.getElementById("premium-results-count");
 
     if (!container) return;
+    if (count) {
+        count.textContent = `${companies.length} ${companies.length === 1 ? "companie găsită" : "companii găsite"}`;
+    }
 
     if (companies.length === 0) {
         container.innerHTML = `
-            <div class="py-10 text-center">
+            <div class="rounded-2xl bg-white px-6 py-12 text-center">
                 <p class="text-lg font-semibold text-[#334E68]">
                     Nu am găsit nicio companie.
                 </p>
 
-                <p class="mt-2 text-sm text-[#667085]">
+                <p class="mt-2 text-sm text-[#46546A]">
                     Încearcă un alt nume sau o altă categorie.
                 </p>
             </div>
@@ -442,75 +427,3 @@ if (searchInput) {
         renderPremiumCards(filteredCompanies);
     });
 }
-
-//    if (company.location?.map) {
-
-//         container.innerHTML = `
-//             <section class="bg-white py-10 sm:py-12">
-
-//                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-//                     <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
-//                         Locație
-//                     </h2>
-
-//                     <p class="mt-2 text-[#667085]">
-//                         ${company.location.address}
-//                     </p>
-
-//                     <div class="mt-6 overflow-hidden rounded-2xl
-//                                 border border-[#E4E7EC]">
-
-//                         <iframe
-//                             src="${company.location.map}"
-//                             class="w-full h-[280px] sm:h-[350px]"
-//                             style="border:0;"
-//                             loading="lazy"
-//                             allowfullscreen>
-//                         </iframe>
-
-//                     </div>
-
-//                 </div>
-
-//             </section>
-//         `;
-
-//         return;
-//     }
-
-
-    
-//     if (company.location?.regions?.length) {
-
-//         container.innerHTML = `
-//             <section class="bg-white py-8 sm:py-10">
-
-//                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-//                     <h2 class="text-2xl sm:text-3xl font-semibold text-[#334E68]">
-//                         Zone deservite
-//                     </h2>
-
-//                     <div class="mt-4 flex flex-wrap gap-2">
-
-//                         ${company.location.regions.map(region => `
-//                             <span class="rounded-full
-//                                          bg-[#F8F5ED]
-//                                          px-4 py-2
-//                                          text-sm
-//                                          text-[#46546A]">
-//                                 📍 ${region}
-//                             </span>
-//                         `).join("")}
-
-//                     </div>
-
-//                 </div>
-
-//             </section>
-//         `;
-//     }
-
-
-// renderLocation(company);
