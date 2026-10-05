@@ -6,10 +6,13 @@
 
     <title>Ellis Box | HiDook</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../src/output.css">
 </head>
 
-<body class="bg-[#FAF8F3] text-[#334E68]">
+<body class="bg-[#FAF8F3] text-[#334E68]" style="font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;">
 
     <div id="navbar"></div>
 
@@ -39,16 +42,34 @@
 
      <div class="grid gap-8 lg:grid-cols-[220px_1fr_300px] lg:items-start">
 
-            <!-- LOGO -->
-            <div class="flex justify-center md:justify-start">
+            <!-- IDENTITATEA COMPANIEI -->
+            <div class="flex flex-col items-center text-center">
                 <div class="w-48 h-48 sm:w-52 sm:h-52 rounded-3xl
                             overflow-hidden border border-[#E4E7EC]
                             bg-white shadow-sm">
                     <img
                         src="../../imagess/ellis.png"
+                        alt="Logo Ellis Box"
                         class="w-full h-full object-cover"
                     >
                 </div>
+
+                <span class="mt-4 inline-flex items-center gap-2 rounded-full
+                             border border-[#F1D36A] bg-[#FFF9E8]
+                             px-4 py-2 text-sm font-semibold text-[#334E68]">
+                    <svg class="w-4 h-4 shrink-0 text-[#A56B00]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2.5 14.4 9.6 21.5 12l-7.1 2.4L12 21.5l-2.4-7.1L2.5 12l7.1-2.4L12 2.5Z" />
+                    </svg>
+                    Profil Premium
+                </span>
+
+                <a href="#ellis-products"
+                   class="mt-2 inline-flex min-h-11 items-center gap-2
+                          text-sm font-semibold text-[#064FC4]
+                          underline-offset-4 hover:underline
+                          focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#064FC4]">
+                    Vezi produsele <span aria-hidden="true">↓</span>
+                </a>
             </div>
 
             <!-- CONTENT -->
@@ -180,7 +201,7 @@
 
 
     <!-- DELIVERY -->
-    <div class="mt-7">
+    <div class="mt-7 lg:mt-14">
 
         <h3 class="text-lg font-semibold text-[#334E68]">
             Livrare
@@ -229,7 +250,7 @@
     </section>
 
  <!-- GALERIE -->
-    <section class="bg-[#FAF8F3] py-8 sm:py-10">
+    <section id="ellis-products" class="bg-[#FAF8F3] py-8 sm:py-10">
 
            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -241,7 +262,7 @@
                         Produsele noastre
                     </h2>
 
-                    <p class="mt-1 text-sm sm:text-base text-[#667085]">
+                    <p class="mt-1 text-base text-[#667085]">
                         Proaspete, naturale și pline de gust.
                     </p>
                 </div>
@@ -403,7 +424,7 @@
                 <h2 id="delivery-map-title" class="text-xl sm:text-2xl font-semibold text-[#334E68]">
                     Zone de livrare
                 </h2>
-                <p class="mt-1 text-sm sm:text-base text-[#46546A]">
+                <p class="mt-1 text-base text-[#46546A]">
                     Explorează orașele în care Ellis Box oferă livrare.
                 </p>
             </div>

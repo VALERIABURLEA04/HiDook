@@ -1,0 +1,299 @@
+.pro-services__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+    margin-top: 1.5rem;
+}
+
+.pro-services__list li {
+    position: relative;
+    display: flex;
+    min-height: 4.25rem;
+    align-items: center;
+    padding: 0.875rem 1.125rem 0.875rem 2rem;
+    border: 1px solid #e4e7ec;
+    border-radius: 0.75rem;
+    background: #fff;
+    color: #334e68;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.pro-services__list li::before {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    width: 0.375rem;
+    height: 0.375rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #064fc4;
+    content: "";
+}
+
+.pro-gallery {
+    position: relative;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #e4e7ec;
+}
+
+.pro-gallery__jump {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    border: 1px solid #d0d5dd;
+    border-radius: 50%;
+    background: #faf8f3;
+    color: #064fc4;
+    transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.pro-gallery__jump:hover {
+    border-color: #064fc4;
+    background: #fff;
+}
+
+.pro-gallery__jump:focus-visible {
+    outline: 2px solid #064fc4;
+    outline-offset: 3px;
+}
+
+.pro-gallery__jump svg {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.pro-gallery__title {
+    color: #334e68;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.pro-gallery__intro {
+    margin-top: 0.25rem;
+    color: #46546a;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.pro-gallery__categories {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0 1rem;
+    padding: 2px 2px 0.5rem;
+    scrollbar-width: none;
+}
+
+.pro-gallery__categories::-webkit-scrollbar,
+.pro-gallery__track::-webkit-scrollbar {
+    display: none;
+}
+
+.pro-gallery__categories button {
+    flex: none;
+    min-height: 2.75rem;
+    padding: 0 1rem;
+    border: 1px solid #d0d5dd;
+    border-radius: 9999px;
+    background: #fff;
+    color: #334e68;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.pro-gallery__categories button:hover:not([aria-pressed="true"]) {
+    border-color: #064fc4;
+    color: #064fc4;
+}
+
+.pro-gallery__categories button[aria-pressed="true"] {
+    border-color: #064fc4;
+    background: #064fc4;
+    color: #fff;
+}
+
+.pro-gallery__categories button:focus-visible {
+    outline: 2px solid #064fc4;
+    outline-offset: 3px;
+}
+
+.pro-gallery__track {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    height: 27rem;
+}
+
+.pro-gallery__track[hidden] {
+    display: none;
+}
+
+.pro-gallery__item {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #e4e7ec;
+}
+
+.pro-gallery__item:first-child {
+    grid-row: span 2;
+}
+
+.pro-gallery__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pro-location__lead {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    color: #46546a;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.pro-location__pin {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: none;
+    color: #f04438;
+}
+
+.pro-location__lead .pro-location__pin {
+    margin-top: 0.125rem;
+}
+
+.pro-location__map {
+    position: relative;
+}
+
+.pro-location__popup {
+    position: absolute;
+    z-index: 1;
+    top: 1.25rem;
+    left: 53%;
+    width: 16rem;
+    padding: 1rem;
+    border: 1px solid #e4e7ec;
+    border-radius: 0.875rem;
+    background: #fff;
+    box-shadow: 0 14px 30px -20px rgba(16, 24, 40, 0.35);
+    color: #334e68;
+}
+
+.pro-location__popup-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.pro-location__popup address {
+    margin: 0.625rem 0 0 1.75rem;
+    color: #46546a;
+    font-size: 0.875rem;
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.pro-location__popup a {
+    display: inline-block;
+    margin: 0.625rem 0 0 1.75rem;
+    color: #064fc4;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.pro-location__popup a:focus-visible {
+    outline: 2px solid #064fc4;
+    outline-offset: 3px;
+}
+
+.pro-location__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid #e4e7ec;
+    background: #fff;
+    font-size: 0.875rem;
+}
+
+.pro-location__footer a {
+    color: #064fc4;
+    font-weight: 600;
+    text-decoration: none;
+    text-underline-offset: 4px;
+}
+
+.pro-location__footer a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .pro-gallery__track {
+        height: 23rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .pro-location__popup {
+        display: none;
+    }
+
+    .pro-services__list {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.625rem;
+    }
+
+    .pro-gallery {
+        margin-top: 2.5rem;
+        padding-top: 2.25rem;
+    }
+
+    .pro-gallery__title {
+        font-size: 1.25rem;
+    }
+
+    .pro-gallery__categories {
+        margin-top: 1.25rem;
+    }
+
+    .pro-gallery__track {
+        display: flex;
+        height: auto;
+        overflow-x: auto;
+        margin-inline: -1rem;
+        padding: 0 1rem 0.5rem;
+        scroll-padding-inline: 1rem;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .pro-gallery__item {
+        flex: 0 0 min(82%, 23rem);
+        aspect-ratio: 4 / 3;
+        scroll-snap-align: start;
+    }
+}

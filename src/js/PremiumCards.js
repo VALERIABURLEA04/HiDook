@@ -36,6 +36,37 @@ jobs: [],
     },
 
     {
+        id: "pro-aspect-ltd",
+        name: "PRO ASPECT LTD",
+        category: "Producție",
+        logo: "./imagess/ProAspect.png",
+
+        slogan: "Mobilier la comandă, de la proiectare la montaj.",
+        description: "Bucătării personalizate, dressinguri, mobilier pentru dormitoare, biblioteci, birouri de acasă și alte elemente de tâmplărie.",
+
+        features: [
+            "🪑 Mobilier la comandă",
+            "📐 Proiectare personalizată",
+            "🔧 Montaj"
+        ],
+
+        location: {
+            address: "89 Garage the Avenue, New Southgate, N11 1NF",
+            map: "https://www.google.com/maps/search/?api=1&query=89%20Garage%20the%20Avenue%2C%20New%20Southgate%2C%20N11%201NF",
+            regions: ["UK - North London"]
+        },
+        contact: {
+            phones: ["+44 7853 330100", "+44 7426 522232"],
+            email: "info@pro-aspect-ltd.co.uk"
+        },
+        promo: null,
+        jobs: [],
+
+        url: "./membru/pro-aspect/",
+        ctaLabel: "Descoperă PRO ASPECT LTD"
+    },
+
+    {
     id: "vedance-studio",
     name: "VEDANCE Studio",
     category: "Dance",
@@ -361,7 +392,7 @@ function createPremiumCard(company) {
                                   hover:bg-[#124BFF]
                                    focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#064FC4]">
 
-                            Descoperă ${company.name}
+                            ${company.ctaLabel || `Descoperă ${company.name}`}
 
                             <span class="ml-2" aria-hidden="true">→</span>
 

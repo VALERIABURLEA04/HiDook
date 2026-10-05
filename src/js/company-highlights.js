@@ -25,7 +25,7 @@ function renderCompanyHighlights(sectionId, highlights) {
         const style = styles[type];
         const card = document.createElement("a");
         card.href = item.href;
-        card.className = `group flex min-w-0 items-center gap-4 rounded-2xl border px-4 py-4 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#064FC4] sm:px-5 ${style.surface}`;
+        card.className = `group flex min-w-0 items-center gap-4 rounded-2xl border px-4 py-3 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#064FC4] sm:px-5 ${style.surface}`;
 
         const icon = document.createElement("span");
         icon.className = `flex size-11 shrink-0 items-center justify-center rounded-full ${style.icon}`;
@@ -36,15 +36,15 @@ function renderCompanyHighlights(sectionId, highlights) {
         content.className = "min-w-0";
 
         const title = document.createElement("span");
-        title.className = "block text-base font-bold leading-snug text-[#334E68] sm:text-lg";
+        title.className = "block text-lg font-bold leading-snug text-[#334E68]";
         title.textContent = item.title;
 
         const description = document.createElement("span");
-        description.className = "mt-1 block text-sm leading-snug text-[#46546A]";
+        description.className = "mt-1 block text-base leading-snug text-[#46546A]";
         description.textContent = item.description || "";
 
         const action = document.createElement("span");
-        action.className = "mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#064FC4] underline-offset-4 group-hover:underline";
+        action.className = "mt-2 inline-flex items-center gap-1 text-base font-semibold text-[#064FC4] underline-offset-4 group-hover:underline";
         action.textContent = `${item.action || "Află mai multe"} →`;
 
         content.append(title, description, action);
